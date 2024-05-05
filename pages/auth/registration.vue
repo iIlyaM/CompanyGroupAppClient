@@ -1,91 +1,169 @@
 <template>
-    <div>
-        <div class="wrapper">
-            <span class="icon-close">
-                <ion-icon name="close-circle"></ion-icon>
-            </span>
-            <div class="form-box login">
-                <h2>Логин</h2>
-                <form action="#">
-                    <div class="input-box">
-                        <span class="icon">
-                            <ion-icon name="mail"></ion-icon>
-                        </span>
-                        <input type="email" required>
-                        <label>Электронная почта</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon">
-                            <ion-icon name="lock"></ion-icon>
-                        </span>
-                        <input type="password" required>
-                        <label>Пароль</label>
-                    </div>
-                    <button type="submit" class="login-btn">Войти</button>\
-                    <div class="login-register">
-                        <p>Нет аккаунта? Зарегистрируйтесь!
-                            <a href="#" class="register-link">
-                                Регистрация!
-                            </a>
-                        </p>
-                    </div>
-                </form>
-            </div>
+
+        <header>
+            <nav class="navigation">
+                <button class="btnLogin-popup">Войти</button>
+            </nav>
+        </header>
+        <div class="body">
+            <div class="wrapper">
+                <span class="icon-close">
+                    <ion-icon name="close-circle"></ion-icon>
+                </span>
+                <div class="form-box login">
+                    <h2>Логин</h2>
+                    <form action="#">
+                        <div class="input-box">
+                            <span class="icon">
+                                <ion-icon name="mail"></ion-icon>
+                            </span>
+                            <input type="email" required>
+                            <label>Электронная почта</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon">
+                                <ion-icon name="lock"></ion-icon>
+                            </span>
+                            <input type="password" required>
+                            <label>Пароль</label>
+                        </div>
+                        <button type="submit" class="login-btn">Войти</button>
+                        <div class="login-register">
+                            <p>Нет аккаунта? Зарегистрируйтесь!
+                                <a href="#" class="register-link">
+                                    Регистрация!
+                                </a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
 
 
-            <div class="form-box register">
-                <h2>Регистрация</h2>
-                <form action="#">
-                    <div class="input-box">
-                        <span class="icon">
-                            <ion-icon name="mail"></ion-icon>
-                        </span>
-                        <input type="email" required>
-                        <label>Электронная почта</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon">
-                            <ion-icon name="lock"></ion-icon>
-                        </span>
-                        <input type="password" required>
-                        <label>Пароль</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon">
-                            <ion-icon name="last-name"></ion-icon>
-                        </span>
-                        <input type="text" required>
-                        <label>Фамилия</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon">
-                            <ion-icon name="first-name"></ion-icon>
-                        </span>
-                        <input type="text" required>
-                        <label>Имя</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon">
-                            <ion-icon name="patronymic"></ion-icon>
-                        </span>
-                        <input type="text" required>
-                        <label>Отчество</label>
-                    </div>
-                    <button type="submit" class="login-btn">Войти</button>
-                    <div class="login-register">
-                        <p>Уже есть аккаунт? Войдите!
-                            <a href="#" class="login-link">
-                                Вход
-                            </a>
-                        </p>
-                    </div>
-                </form>
+                <div class="form-box register">
+                    <h2>Регистрация</h2>
+                    <form action="#">
+                        <div class="input-box">
+                            <span class="icon">
+                                <ion-icon name="mail"></ion-icon>
+                            </span>
+                            <input type="email" required>
+                            <label>Электронная почта</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon">
+                                <ion-icon name="lock"></ion-icon>
+                            </span>
+                            <input type="password" required>
+                            <label>Пароль</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon">
+                                <ion-icon name="last-name"></ion-icon>
+                            </span>
+                            <input type="text" required>
+                            <label>Фамилия</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon">
+                                <ion-icon name="first-name"></ion-icon>
+                            </span>
+                            <input type="text" required>
+                            <label>Имя</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon">
+                                <ion-icon name="patronymic"></ion-icon>
+                            </span>
+                            <input type="text" required>
+                            <label>Отчество</label>
+                        </div>
+                        <button type="submit" class="login-btn">Войти</button>
+                        <div class="login-register">
+                            <p>Уже есть аккаунт? Войдите!
+                                <a href="#" class="login-link">
+                                    Вход
+                                </a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 </template>
 
 <style lang="css" scoped>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('assets/office.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
 .wrapper {
     position: relative;
     width: 400px;
@@ -171,6 +249,7 @@
     color: #162938;
     font-weight: 500;
     pointer-events: none;
+    transition: .5s;
 }
 
 .input-box input-focus~label,
@@ -231,6 +310,7 @@
 
 <script setup>
 import { onMounted } from 'vue';
+import * as ion from 'ionicons';
 
 let wrapper, loginLink, registerLink;
 
