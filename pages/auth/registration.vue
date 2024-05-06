@@ -1,5 +1,7 @@
 <template>
 
+    <Header />
+
         <div class="body">
             <div class="wrapper">
                 <span class="icon-close">
@@ -103,8 +105,6 @@
     background-size: cover;
     background-position: center;
 }
-
-
 
 .wrapper {
     position: relative;
