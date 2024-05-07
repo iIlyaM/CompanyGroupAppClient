@@ -2,41 +2,21 @@
 
     <Header />
 
-        <div class="body">
-            <div class="wrapper">
-                <span class="icon-close">
-                    <ion-icon name="close-circle"></ion-icon>
-                </span>
-                <div class="form-box login">
-                    <h2>Логин</h2>
-                    <form action="#">
-                        <div class="input-box">
-                            <span class="icon">
-                                <ion-icon name="mail"></ion-icon>
-                            </span>
-                            <input type="email" required>
-                            <label>Электронная почта</label>
-                        </div>
-                        <div class="input-box">
-                            <span class="icon">
-                                <ion-icon name="lock"></ion-icon>
-                            </span>
-                            <input type="password" required>
-                            <label>Пароль</label>
-                        </div>
-                        <button type="submit" class="login-btn">Войти</button>
-                        <div class="login-register">
-                            <p>Нет аккаунта? Зарегистрируйтесь!
-                                <a href="#" class="register-link">
-                                    Регистрация!
-                                </a>
-                            </p>
-                        </div>
-                    </form>
-                </div>
+    <div class="body">
+        <div class="wrapper">
+            <span class="icon-close">
+                <ion-icon name="close-circle"></ion-icon>
+            </span>
+
+            <Transition>
+
+                <FormLogin v-if="!formToggle" :formToggle="!formToggle" />
+
+            </Transition>
 
 
-                <div class="form-box register">
+            <Transition v-if="formToggle">
+                <div class="form-box register" :class="{ 'active': formToggle }">
                     <h2>Регистрация</h2>
                     <form action="#">
                         <div class="input-box">
@@ -77,18 +57,19 @@
                         <button type="submit" class="login-btn">Войти</button>
                         <div class="login-register">
                             <p>Уже есть аккаунт? Войдите!
-                                <a href="#" class="login-link">
+                                <span @click="toFormToggle" class="login-link">
                                     Вход
-                                </a>
+                                </span>
                             </p>
                         </div>
                     </form>
                 </div>
-            </div>
+            </Transition>
         </div>
+    </div>
 </template>
 
-<style lang="css" scoped>
+<style lang="css">
 * {
     margin: 0;
     padding: 0;
@@ -108,8 +89,8 @@
 
 .wrapper {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    max-width: 600px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
@@ -122,35 +103,28 @@
     transition: height .2s ease;
 }
 
-.wrapper.active {
-    height: 520px;
-}
 
 .wrapper .form-box {
     width: 100%;
     padding: 40px;
+    transition: transform .18s ease;
 }
 
-.wrapper .form-box.login {
-    transition: transform .18s ease;
+/* .form-box.login {
     transform: translateX(0);
 }
 
-.wrapper.active .form-box.login {
-    transition: none;
-    transform: translateX(-400px);
+.form-box.login.active {
+    transform: translateX(-600px) scaleX(0);
 }
 
-.wrapper .form-box.register {
-    position: absolute;
-    transition: none;
-    transform: translateX(400px);
+.form-box.register {
+    transform: translateX(600px);
 }
 
-.wrapper.active .form-box.register {
-    transition: transform .18s ease;
-    transform: translateX(0);
-}
+.form-box.register.active {
+    transform: translateX(0) scaleX(0);
+} */
 
 .wrapper .icon-close {
     position: absolute;
@@ -183,7 +157,7 @@
 }
 
 .input-box label {
-    position: top;
+    position: absolute;
     top: 50%;
     left: 5px;
     transform: translateY(-50%);
@@ -194,9 +168,10 @@
     transition: .5s;
 }
 
-.input-box input-focus~label,
-.input-box input-valid~label {
+.input-box input:focus~label,
+.input-box input:valid~label {
     top: -5px;
+    transform: translateY(-80%);
 }
 
 .input-box input {
@@ -251,22 +226,16 @@
 
 
 <script setup>
-import { onMounted } from 'vue';
 import * as ion from 'ionicons';
 
-let wrapper, loginLink, registerLink;
+definePageMeta({
+    layout: 'logged'
+})
 
-onMounted(() => {
-    wrapper = document.querySelector('.wrapper');
-    loginLink = document.querySelector('.login-link');
-    registerLink = document.querySelector('.register-link');
+const formToggle = ref(false)
 
-    registerLink.addEventListener('click', () => {
-        wrapper.classList.add('active');
-    });
+const toFormToggle = () => {
+    formToggle.value = !formToggle.value
+}
 
-    loginLink.addEventListener('click', () => {
-        wrapper.classList.remove('active');
-    });
-});
 </script>
