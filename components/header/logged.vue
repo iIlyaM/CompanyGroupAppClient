@@ -5,7 +5,7 @@
     <header>
         <nav class="navigation">
             <button class="btnLogin-popup">Войти</button>
-            Пользователь зологинин
+            Пользователь авторизован
         </nav>
     </header>
 </template>
