@@ -27,7 +27,7 @@ const emit = defineEmits(['changeToogle'])
                 <button type="submit" class="login-btn">Войти</button>
                 <div class="login-register">
                     <p>Нет аккаунта? Зарегистрируйтесь!
-                        <span @click="$emit('changeToogle', formToggle)" class="register-link">
+                        <span @click="emit('changeToogle')" class="register-link">
                             Регистрация!
                         </span>
                     </p>

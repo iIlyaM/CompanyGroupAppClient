@@ -2,7 +2,7 @@
 
 </script>
 <template>
-    <HeaderLogged/>
+    <Header />
     <main>
 		<slot />
 	</main>
