@@ -4,7 +4,7 @@
 <template>
     <header>
         <nav class="navigation">
-            <button class="btnLogin-popup">Войти</button>
+            <NuxtLink to="/auth/" class="btnLogin-popup">Войти</NuxtLink>
         </nav>
     </header>
 </template>

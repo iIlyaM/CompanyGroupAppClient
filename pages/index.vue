@@ -3,6 +3,8 @@
 </script>
 <template>
     <NuxtLayout>
-      <h1>Hello world</h1>
+        <div class="body">
+            <h1>Hello world</h1>
+        </div>
     </NuxtLayout>
   </template>
